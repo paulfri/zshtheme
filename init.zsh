@@ -18,7 +18,7 @@ if (( ${+functions[git-info]} )); then
   zstyle ':zim:git-info:behind' format '%F{red}↓%F{242}%B '
   zstyle ':zim:git-info:keys' format \
     'prompt' '%F{white}%C%D' \
-    'rprompt' '%A%B%F{242}%b%F{white}'
+    'rprompt' ' %A%B%F{242}%b%F{white}'
 
   autoload -Uz add-zsh-hook && add-zsh-hook precmd git-info
 fi
