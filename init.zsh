@@ -24,7 +24,7 @@ zstyle ':zim:git-info:keys' format \
 add-zsh-hook precmd git-info
 
 # duration-info
-zstyle ':zim:duration-info' format '%F{yellow}%d '
+zstyle ':zim:duration-info' format "%F{yellow}%d "
 zstyle ':zim:duration-info' threshold 2.0
 zstyle ':zim:duration-info' show-milliseconds yes
 
