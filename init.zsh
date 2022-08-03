@@ -6,7 +6,6 @@ local cyan="%{$fg[cyan]%}"
 local green="%{$fg[green]%}"
 local red="%{$fg[red]%}"
 local yellow="%{$fg[yellow]%}"
-local reset="%{$reset_color%}" 
 
 # git-info
 typeset -gA git_info
@@ -39,11 +38,13 @@ local user_host="%F{blue}%n@%m%{$reset_color%}"
 local return_code="%(?..%F{red} %?↵ %{$reset_color%}) "
 local systime="%F{cyan}%*%{$reset_color%}"
 
-PS1='${user_host}:%F{242}$(prompt-pwd)%{$reset_color%} ${(e)git_info[prompt]:-λ}%{$reset_color%} '
+PS1='${user_host}:%F{242}$(prompt-pwd) ${(e)git_info[prompt]:-λ}%f '
+
 local right_prompt='${return_code}${duration_info}%{$reset_color%}${(e)git_info[rprompt]}${systime}%{$reset_color%}'
+RPS1="${right_prompt} ★ %{$reset_color%}"
 
 function zle-line-init zle-keymap-select {
-  RPS1="${right_prompt} ${${KEYMAP/vicmd/☆}/(main|viins)/★}"
+  RPS1="${right_prompt} ${${KEYMAP/vicmd/☆}/(main|viins)/★}%{$reset_color%}"
 
   zle reset-prompt
 }
